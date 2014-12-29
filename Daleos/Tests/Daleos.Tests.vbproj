@@ -5,8 +5,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EC3A13E4-142B-4D5A-A0BD-E27BA2B7E72D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FabricaDeCodigos.Ed.Tests</RootNamespace>
-    <AssemblyName>Ed.Tests</AssemblyName>
+    <RootNamespace>FabricaDeCodigos.Daleos.Tests</RootNamespace>
+    <AssemblyName>Daleos.Tests</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
     <TargetFrameworkVersion>v4.5.3</TargetFrameworkVersion>
@@ -23,7 +23,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Ed.Tests.xml</DocumentationFile>
+    <DocumentationFile>Daleos.Tests.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Ed.Tests.xml</DocumentationFile>
+    <DocumentationFile>Daleos.Tests.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -70,9 +70,9 @@
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Ed.vbproj">
+    <ProjectReference Include="..\Daleos.vbproj">
       <Project>{0518eb8b-ba7f-4990-8d94-12d96c621f41}</Project>
-      <Name>Ed</Name>
+      <Name>Daleos</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>
