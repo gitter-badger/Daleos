@@ -6,7 +6,6 @@ Imports System.Runtime.InteropServices
 Public Class HashMap(Of TKey, TValue)
     Implements IHashMap(Of TKey, TValue), IReadOnlyHashMap(Of TKey, TValue)
 
-#Region "Constructors"
     Public Sub New()
     End Sub
 
@@ -24,9 +23,7 @@ Public Class HashMap(Of TKey, TValue)
 
     Public Sub New(capacity As Integer, comparer As IEqualityComparer(Of TKey))
     End Sub
-#End Region
 
-#Region "Properties"
     Public ReadOnly Property Comparer As IEqualityComparer(Of TKey)
         Get
             Throw New NotImplementedException()
@@ -89,9 +86,7 @@ Public Class HashMap(Of TKey, TValue)
             Throw New NotImplementedException()
         End Get
     End Property
-#End Region
 
-#Region "Methods"
     Private Sub Add(item As KeyValuePair(Of TKey, TValue)) Implements ICollection(Of KeyValuePair(Of TKey, TValue)).Add
         Throw New NotImplementedException()
     End Sub
@@ -143,12 +138,10 @@ Public Class HashMap(Of TKey, TValue)
     Public Function TryGetValue(key As TKey, <Out> ByRef value As TValue) As Boolean Implements IHashMap(Of TKey, TValue).TryGetValue, IReadOnlyHashMap(Of TKey, TValue).TryGetValue
         Throw New NotImplementedException()
     End Function
-#End Region
 
     Public Structure Enumerator
         Implements IEnumerator(Of KeyValuePair(Of TKey, TValue))
 
-#Region "Properties"
         Public ReadOnly Property Current As KeyValuePair(Of TKey, TValue) Implements IEnumerator(Of KeyValuePair(Of TKey, TValue)).Current
             Get
                 Throw New NotImplementedException()
@@ -160,9 +153,7 @@ Public Class HashMap(Of TKey, TValue)
                 Throw New NotImplementedException()
             End Get
         End Property
-#End Region
 
-#Region "Methods"
         Public Sub Dispose() Implements IDisposable.Dispose
             Throw New NotImplementedException()
         End Sub
@@ -174,7 +165,6 @@ Public Class HashMap(Of TKey, TValue)
         Private Sub Reset() Implements IEnumerator.Reset
             Throw New NotImplementedException()
         End Sub
-#End Region
     End Structure
 
     Public NotInheritable Class KeyCollection
@@ -183,7 +173,6 @@ Public Class HashMap(Of TKey, TValue)
         Public Sub New(hashMap As HashMap(Of TKey, TValue))
         End Sub
 
-#Region "Properties"
         Public ReadOnly Property Count As Integer Implements ICollection(Of TKey).Count
             Get
                 Throw New NotImplementedException()
@@ -195,9 +184,7 @@ Public Class HashMap(Of TKey, TValue)
                 Throw New NotImplementedException()
             End Get
         End Property
-#End Region
 
-#Region "Methods"
         Private Sub Add(item As TKey) Implements ICollection(Of TKey).Add
             Throw New NotImplementedException()
         End Sub
@@ -229,12 +216,10 @@ Public Class HashMap(Of TKey, TValue)
         Private Function Remove(item As TKey) As Boolean Implements ICollection(Of TKey).Remove
             Throw New NotImplementedException()
         End Function
-#End Region
 
         Public Structure Enumerator
             Implements IEnumerator(Of TKey)
 
-#Region "Properties"
             Public ReadOnly Property Current As TKey Implements IEnumerator(Of TKey).Current
                 Get
                     Throw New NotImplementedException()
@@ -246,9 +231,7 @@ Public Class HashMap(Of TKey, TValue)
                     Throw New NotImplementedException()
                 End Get
             End Property
-#End Region
 
-#Region "Methods"
             Public Sub Dispose() Implements IDisposable.Dispose
                 Throw New NotImplementedException()
             End Sub
@@ -260,10 +243,85 @@ Public Class HashMap(Of TKey, TValue)
             Private Sub Reset() Implements IEnumerator.Reset
                 Throw New NotImplementedException()
             End Sub
-#End Region
         End Structure
     End Class
 
     Public NotInheritable Class ValueCollection
+        Implements ICollection(Of TValue)
+
+        Public Sub New(hashMap As HashMap(Of TKey, TValue))
+        End Sub
+
+        Public ReadOnly Property Count As Integer Implements ICollection(Of TValue).Count
+            Get
+                Throw New NotImplementedException()
+            End Get
+        End Property
+
+        Private ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of TValue).IsReadOnly
+            Get
+                Throw New NotImplementedException()
+            End Get
+        End Property
+
+        Private Sub Add(item As TValue) Implements ICollection(Of TValue).Add
+            Throw New NotImplementedException()
+        End Sub
+
+        Private Sub Clear() Implements ICollection(Of TValue).Clear
+            Throw New NotImplementedException()
+        End Sub
+
+        Private Function Contains(item As TValue) As Boolean Implements ICollection(Of TValue).Contains
+            Throw New NotImplementedException()
+        End Function
+
+        Public Sub CopyTo(array() As TValue, arrayIndex As Integer) Implements ICollection(Of TValue).CopyTo
+            Throw New NotImplementedException()
+        End Sub
+
+        Public Function GetEnumerator() As Enumerator
+            Throw New NotImplementedException()
+        End Function
+
+        Private Function IEnumerable_GetEnumerator() As IEnumerator Implements IEnumerable.GetEnumerator
+            Throw New NotImplementedException()
+        End Function
+
+        Private Function IEnumerableOfT_GetEnumerator() As IEnumerator(Of TValue) Implements IEnumerable(Of TValue).GetEnumerator
+            Throw New NotImplementedException()
+        End Function
+
+        Private Function Remove(item As TValue) As Boolean Implements ICollection(Of TValue).Remove
+            Throw New NotImplementedException()
+        End Function
+
+        Public Structure Enumerator
+            Implements IEnumerator(Of TValue)
+
+            Public ReadOnly Property Current As TValue Implements IEnumerator(Of TValue).Current
+                Get
+                    Throw New NotImplementedException()
+                End Get
+            End Property
+
+            Private ReadOnly Property IEnumerator_Current As Object Implements IEnumerator.Current
+                Get
+                    Throw New NotImplementedException()
+                End Get
+            End Property
+
+            Public Sub Dispose() Implements IDisposable.Dispose
+                Throw New NotImplementedException()
+            End Sub
+
+            Public Function MoveNext() As Boolean Implements IEnumerator.MoveNext
+                Throw New NotImplementedException()
+            End Function
+
+            Private Sub Reset() Implements IEnumerator.Reset
+                Throw New NotImplementedException()
+            End Sub
+        End Structure
     End Class
 End Class
