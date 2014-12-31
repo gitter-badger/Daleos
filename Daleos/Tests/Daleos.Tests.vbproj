@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{EC3A13E4-142B-4D5A-A0BD-E27BA2B7E72D}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>FabricaDeCodigos.Daleos.Tests</RootNamespace>
+    <RootNamespace>HoracioFilho.Daleos.Tests</RootNamespace>
     <AssemblyName>Daleos.Tests</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
