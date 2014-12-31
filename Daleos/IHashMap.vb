@@ -1,7 +1,7 @@
 ﻿Imports System.Collections.Generic
 Imports System.Runtime.InteropServices
 
-Public Interface IMap(Of TKey, TValue)
+Public Interface IHashMap(Of TKey, TValue)
     Inherits ICollection(Of KeyValuePair(Of TKey, TValue))
 
     Default Property Item(key As TKey) As TValue

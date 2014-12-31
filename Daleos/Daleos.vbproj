@@ -58,8 +58,9 @@
     <Import Include="Microsoft.VisualBasic" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMap.vb" />
-    <Compile Include="IReadOnlyMap.vb" />
+    <Compile Include="HashMap.vb" />
+    <Compile Include="IHashMap.vb" />
+    <Compile Include="IReadOnlyHashMap.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.VisualBasic.targets" />

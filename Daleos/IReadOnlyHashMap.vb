@@ -1,7 +1,7 @@
 ﻿Imports System.Collections.Generic
 Imports System.Runtime.InteropServices
 
-Public Interface IReadOnlyMap(Of TKey, TValue)
+Public Interface IReadOnlyHashMap(Of TKey, TValue)
     Inherits IReadOnlyCollection(Of KeyValuePair(Of TKey, TValue))
 
     Default ReadOnly Property Item(key As TKey) As TValue
