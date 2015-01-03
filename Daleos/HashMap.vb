@@ -26,25 +26,25 @@ Public Class HashMap(Of TKey, TValue)
 
     Public ReadOnly Property Comparer As IEqualityComparer(Of TKey)
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
     End Property
 
     Public ReadOnly Property Count As Integer Implements ICollection(Of KeyValuePair(Of TKey, TValue)).Count, IReadOnlyCollection(Of KeyValuePair(Of TKey, TValue)).Count
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
     End Property
 
     Private ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of KeyValuePair(Of TKey, TValue)).IsReadOnly
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
     End Property
 
     Default Public Property Item(key As TKey) As TValue Implements IHashMap(Of TKey, TValue).Item, IReadOnlyHashMap(Of TKey, TValue).Item
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
         Set(value As TValue)
             Throw New NotImplementedException()
@@ -53,37 +53,37 @@ Public Class HashMap(Of TKey, TValue)
 
     Public ReadOnly Property Keys As KeyCollection
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
     End Property
 
     Private ReadOnly Property IHashMap_Keys As ICollection(Of TKey) Implements IHashMap(Of TKey, TValue).Keys
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
     End Property
 
     Private ReadOnly Property IReadOnlyHashMap_Keys As IEnumerable(Of TKey) Implements IReadOnlyHashMap(Of TKey, TValue).Keys
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
     End Property
 
     Public ReadOnly Property Values As ValueCollection
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
     End Property
 
     Private ReadOnly Property IHashMap_Values As ICollection(Of TValue) Implements IHashMap(Of TKey, TValue).Values
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
     End Property
 
     Private ReadOnly Property IReadOnlyHashMap_Values As IEnumerable(Of TValue) Implements IReadOnlyHashMap(Of TKey, TValue).Values
         Get
-            Throw New NotImplementedException()
+            Return Nothing
         End Get
     End Property
 
@@ -144,18 +144,17 @@ Public Class HashMap(Of TKey, TValue)
 
         Public ReadOnly Property Current As KeyValuePair(Of TKey, TValue) Implements IEnumerator(Of KeyValuePair(Of TKey, TValue)).Current
             Get
-                Throw New NotImplementedException()
+                Return Nothing
             End Get
         End Property
 
         Private ReadOnly Property IEnumerator_Current As Object Implements IEnumerator.Current
             Get
-                Throw New NotImplementedException()
+                Return Nothing
             End Get
         End Property
 
         Public Sub Dispose() Implements IDisposable.Dispose
-            Throw New NotImplementedException()
         End Sub
 
         Public Function MoveNext() As Boolean Implements IEnumerator.MoveNext
@@ -175,13 +174,13 @@ Public Class HashMap(Of TKey, TValue)
 
         Public ReadOnly Property Count As Integer Implements ICollection(Of TKey).Count
             Get
-                Throw New NotImplementedException()
+                Return Nothing
             End Get
         End Property
 
         Private ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of TKey).IsReadOnly
             Get
-                Throw New NotImplementedException()
+                Return Nothing
             End Get
         End Property
 
@@ -222,18 +221,17 @@ Public Class HashMap(Of TKey, TValue)
 
             Public ReadOnly Property Current As TKey Implements IEnumerator(Of TKey).Current
                 Get
-                    Throw New NotImplementedException()
+                    Return Nothing
                 End Get
             End Property
 
             Private ReadOnly Property IEnumerator_Current As Object Implements IEnumerator.Current
                 Get
-                    Throw New NotImplementedException()
+                    Return Nothing
                 End Get
             End Property
 
             Public Sub Dispose() Implements IDisposable.Dispose
-                Throw New NotImplementedException()
             End Sub
 
             Public Function MoveNext() As Boolean Implements IEnumerator.MoveNext
@@ -254,13 +252,13 @@ Public Class HashMap(Of TKey, TValue)
 
         Public ReadOnly Property Count As Integer Implements ICollection(Of TValue).Count
             Get
-                Throw New NotImplementedException()
+                Return Nothing
             End Get
         End Property
 
         Private ReadOnly Property IsReadOnly As Boolean Implements ICollection(Of TValue).IsReadOnly
             Get
-                Throw New NotImplementedException()
+                Return Nothing
             End Get
         End Property
 
@@ -301,18 +299,17 @@ Public Class HashMap(Of TKey, TValue)
 
             Public ReadOnly Property Current As TValue Implements IEnumerator(Of TValue).Current
                 Get
-                    Throw New NotImplementedException()
+                    Return Nothing
                 End Get
             End Property
 
             Private ReadOnly Property IEnumerator_Current As Object Implements IEnumerator.Current
                 Get
-                    Throw New NotImplementedException()
+                    Return Nothing
                 End Get
             End Property
 
             Public Sub Dispose() Implements IDisposable.Dispose
-                Throw New NotImplementedException()
             End Sub
 
             Public Function MoveNext() As Boolean Implements IEnumerator.MoveNext
