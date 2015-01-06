@@ -17,27 +17,13 @@ Public Class HashMap(Of TKey, TValue)
         _loadFactor = DefaultLoadFactor
     End Sub
 
-    Public Sub New(hashMap As IHashMap(Of TKey, TValue))
-        Me.New(hashMap, Nothing)
+    Public Sub New(hashMap As IHashMap(Of TKey, TValue), Optional comparer As IEqualityComparer(Of TKey) = Nothing)
+        Me.New(comparer)
     End Sub
 
-    Public Sub New(hashMap As IHashMap(Of TKey, TValue), comparer As IEqualityComparer(Of TKey))
-        Me.Comparer = If(comparer, EqualityComparer(Of TKey).Default)
+    Public Sub New(capacity As Integer, Optional comparer As IEqualityComparer(Of TKey) = Nothing)
+        Me.New(comparer)
 
-        _loadFactor = DefaultLoadFactor
-
-        ' Adicionar as entradas do mapa passado como parâmetro
-    End Sub
-
-    Public Sub New(capacity As Integer)
-        Me.New(capacity, Nothing)
-    End Sub
-
-    Public Sub New(capacity As Integer, comparer As IEqualityComparer(Of TKey))
-        Me.New(capacity, comparer, DefaultLoadFactor)
-    End Sub
-
-    Friend Sub New(capacity As Integer, comparer As IEqualityComparer(Of TKey), loadFactor As Single)
         If (capacity < 0) Then
             Throw New ArgumentOutOfRangeException("capacity")
         End If
@@ -45,14 +31,6 @@ Public Class HashMap(Of TKey, TValue)
         If (capacity > MaximumCapacity) Then
             capacity = MaximumCapacity
         End If
-
-        If (loadFactor <= 0 OrElse Single.IsNaN(loadFactor)) Then
-            Throw New ArgumentOutOfRangeException("loadFactor")
-        End If
-
-        Me.Comparer = If(comparer, EqualityComparer(Of TKey).Default)
-
-        _loadFactor = loadFactor
     End Sub
 
     Public ReadOnly Property Comparer As IEqualityComparer(Of TKey)
