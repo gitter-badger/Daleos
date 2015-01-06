@@ -6,29 +6,56 @@ Imports System.Runtime.InteropServices
 Public Class HashMap(Of TKey, TValue)
     Implements IHashMap(Of TKey, TValue), IReadOnlyHashMap(Of TKey, TValue)
 
-    Public Sub New()
-    End Sub
+    Private _loadFactor As Single
 
-    Public Sub New(comparer As IEqualityComparer(Of TKey))
+    Private Const MaximumCapacity As Integer = 1 << 30
+    Private Const DefaultLoadFactor As Single = 0.75F
+
+    Public Sub New(Optional comparer As IEqualityComparer(Of TKey) = Nothing)
+        Me.Comparer = If(comparer, EqualityComparer(Of TKey).Default)
+
+        _loadFactor = DefaultLoadFactor
     End Sub
 
     Public Sub New(hashMap As IHashMap(Of TKey, TValue))
+        Me.New(hashMap, Nothing)
     End Sub
 
     Public Sub New(hashMap As IHashMap(Of TKey, TValue), comparer As IEqualityComparer(Of TKey))
+        Me.Comparer = If(comparer, EqualityComparer(Of TKey).Default)
+
+        _loadFactor = DefaultLoadFactor
+
+        ' Adicionar as entradas do mapa passado como parâmetro
     End Sub
 
     Public Sub New(capacity As Integer)
+        Me.New(capacity, Nothing)
     End Sub
 
     Public Sub New(capacity As Integer, comparer As IEqualityComparer(Of TKey))
+        Me.New(capacity, comparer, DefaultLoadFactor)
+    End Sub
+
+    Friend Sub New(capacity As Integer, comparer As IEqualityComparer(Of TKey), loadFactor As Single)
+        If (capacity < 0) Then
+            Throw New ArgumentOutOfRangeException("capacity")
+        End If
+
+        If (capacity > MaximumCapacity) Then
+            capacity = MaximumCapacity
+        End If
+
+        If (loadFactor <= 0 OrElse Single.IsNaN(loadFactor)) Then
+            Throw New ArgumentOutOfRangeException("loadFactor")
+        End If
+
+        Me.Comparer = If(comparer, EqualityComparer(Of TKey).Default)
+
+        _loadFactor = loadFactor
     End Sub
 
     Public ReadOnly Property Comparer As IEqualityComparer(Of TKey)
-        Get
-            Return Nothing
-        End Get
-    End Property
 
     Public ReadOnly Property Count As Integer Implements ICollection(Of KeyValuePair(Of TKey, TValue)).Count, IReadOnlyCollection(Of KeyValuePair(Of TKey, TValue)).Count
         Get
