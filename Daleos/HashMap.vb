@@ -6,15 +6,11 @@ Imports System.Runtime.InteropServices
 Public Class HashMap(Of TKey, TValue)
     Implements IHashMap(Of TKey, TValue), IReadOnlyHashMap(Of TKey, TValue)
 
-    Private _loadFactor As Single
-
     Private Const MaximumCapacity As Integer = 1 << 30
-    Private Const DefaultLoadFactor As Single = 0.75F
+    Private Const LoadFactor As Single = 0.75F
 
     Public Sub New(Optional comparer As IEqualityComparer(Of TKey) = Nothing)
         Me.Comparer = If(comparer, EqualityComparer(Of TKey).Default)
-
-        _loadFactor = DefaultLoadFactor
     End Sub
 
     Public Sub New(hashMap As IHashMap(Of TKey, TValue), Optional comparer As IEqualityComparer(Of TKey) = Nothing)
