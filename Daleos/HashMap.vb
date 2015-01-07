@@ -6,7 +6,9 @@ Imports System.Runtime.InteropServices
 Public Class HashMap(Of TKey, TValue)
     Implements IHashMap(Of TKey, TValue), IReadOnlyHashMap(Of TKey, TValue)
 
-    Private Const MaximumCapacity As Integer = 1 << 30
+    Private _threshold As Integer
+
+    Friend Const MaximumCapacity As Integer = 1 << 30
     Private Const LoadFactor As Single = 0.75F
 
     Public Sub New(Optional comparer As IEqualityComparer(Of TKey) = Nothing)
@@ -27,6 +29,8 @@ Public Class HashMap(Of TKey, TValue)
         If (capacity > MaximumCapacity) Then
             capacity = MaximumCapacity
         End If
+
+        _threshold = ThresholdFor(capacity)
     End Sub
 
     Public ReadOnly Property Comparer As IEqualityComparer(Of TKey)
@@ -87,6 +91,17 @@ Public Class HashMap(Of TKey, TValue)
             Return Nothing
         End Get
     End Property
+
+    Friend Shared Function ThresholdFor(capacity As Integer) As Integer
+        Dim threshold = capacity - 1
+        threshold = threshold Or (threshold >> 1)
+        threshold = threshold Or (threshold >> 2)
+        threshold = threshold Or (threshold >> 4)
+        threshold = threshold Or (threshold >> 8)
+        threshold = threshold Or (threshold >> 16)
+
+        Return If(threshold < 0, 1, If(threshold >= MaximumCapacity, MaximumCapacity, threshold + 1))
+    End Function
 
     Private Sub Add(item As KeyValuePair(Of TKey, TValue)) Implements ICollection(Of KeyValuePair(Of TKey, TValue)).Add
         Throw New NotImplementedException()
