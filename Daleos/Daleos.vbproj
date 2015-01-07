@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="HashMap.vb" />
     <Compile Include="IHashMap.vb" />
+    <Compile Include="IntegerExtensions.vb" />
     <Compile Include="IReadOnlyHashMap.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
   </ItemGroup>

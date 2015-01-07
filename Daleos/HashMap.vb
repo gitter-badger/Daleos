@@ -100,7 +100,13 @@ Public Class HashMap(Of TKey, TValue)
         threshold = threshold Or (threshold >> 8)
         threshold = threshold Or (threshold >> 16)
 
-        Return If(threshold < 0, 1, If(threshold >= MaximumCapacity, MaximumCapacity, threshold + 1))
+        If (threshold < 0) Then
+            Return 1
+        ElseIf (threshold >= MaximumCapacity)
+            Return MaximumCapacity
+        Else
+            Return threshold + 1
+        End If
     End Function
 
     Private Sub Add(item As KeyValuePair(Of TKey, TValue)) Implements ICollection(Of KeyValuePair(Of TKey, TValue)).Add
