@@ -13,7 +13,7 @@ Public NotInheritable Class HashMapTests
     <TestCase(962308314, ExpectedResult:=1073741824)>
     <TestCase(MaximumCapacity, ExpectedResult:=MaximumCapacity)>
     <TestCase(Integer.MaxValue, ExpectedResult:=MaximumCapacity)>
-    Public Function TestThresholdForMethod(capacity As Integer) As Integer
+    Public Function TestThresholdCalculation(capacity As Integer) As Integer
         Return ThresholdFor(capacity)
     End Function
 End Class
